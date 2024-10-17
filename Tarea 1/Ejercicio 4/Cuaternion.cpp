@@ -1,3 +1,12 @@
+/*
+ * CI-3641 Lenguajes de Programación
+ * Alumno: Jesus Gutierrez
+ * Carnet: 20-10332
+ * Prgeunta 4
+ * Liberia que representa un cuaternión
+ */
+
+
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -52,6 +61,11 @@ public:
      */
     Cuaternion operator+(const Cuaternion& v) const {
         return Cuaternion(a + v.a, b + v.b, c + v.c, d + v.d);
+    }
+
+    // Sobrecargar el operador == para comparar dos cuaterniones
+    bool operator == (const Cuaternion& v) const {
+        return a == v.a && b == v.b && c == v.c && d == v.d;
     }
 
     /**
@@ -122,23 +136,3 @@ public:
         cout << a << " + (" << b << ")i + (" << c <<")j + (" << d << ")k\n";
     }
 };
-
-int main() {
-    Cuaternion v(1, 1, 1, 1);
-    Cuaternion w(2, 2, 2, 2);
-    //cout << "La suma de v+w es: ";
-    //(v+w).mostrar();
-    //cout << "La suma de v+3 es: ";
-    //(v+3).mostrar();
-    
-    //cout << "El producto de v*w es: ";
-    //(v*w).mostrar();
-    //cout << "El producto de w*3 es: ";
-    //(w*3).mostrar();
-    
-    //cout << "El inverso de v es: ";
-    //(~v).mostrar();*/
-    
-    cout << "El módulo del cuaternion v es: " << (&v) << endl;
-    return 0;
-}

@@ -1,4 +1,10 @@
-
+/*
+ * CI-3641 Lenguajes de Programación
+ * Alumno: Jesus Gutierrez
+ * Carnet: 20-10332
+ * Prgeunta 1
+ * Funcion que determina si una matriz cuadrada es una matriz magica
+ */
 
 
 public class matriz_magica {

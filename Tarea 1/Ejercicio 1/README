@@ -1,0 +1,8 @@
+### `potencia_modular`:
+    -Compilar: `javac potencia_modular.java`
+
+
+### `matriz_magica`:
+    -Compilar: `javac matriz magica.java`
+
+Para probar dichos metodos hay que crear un Cliente aparte

@@ -1,5 +1,13 @@
-public class potencia_modular {
+/*
+ * CI-3641 Lenguajes de Programación
+ * Alumno: Jesus Gutierrez
+ * Carnet: 20-10332
+ * Prgeunta 1
+ * Funcion que calcula la potencia modular
+ */
 
+public class potencia_modular {
+         
     /**
      * Calcula la potencia modular (a^b) % c.
      *

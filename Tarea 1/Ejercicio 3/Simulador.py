@@ -1,3 +1,8 @@
+# CI-3641 Lenguajes de Programación
+# Alumno: Jesus Gutierrez
+# Carnet: 20-10332
+# Pregunta 3
+
 class Programa:
     """
     Clase Programa 
@@ -239,6 +244,9 @@ class Maquina:
             if self.existeInterprete(traductor.lenguaje_destino):
                 if self.existeInterprete(traductor.lenguaje_base):
                     return True
+            else:
+                if self.buscar_traductor(traductor.lenguaje_destino):
+                    return True
         return False
 
         
@@ -249,9 +257,10 @@ def Simulador():
     y verificar si un programa es ejecutable. 
     
     Comandos disponibles:
-    - DEFINIR PROGRAMA <nombre> <ruta>: Define un programa con el nombre y la ruta especificados.
-    - DEFINIR INTERPRETE <nombre> <ruta>: Define un intérprete con el nombre y la ruta especificados.
-    - DEFINIR TRADUCTOR <nombre> <origen> <destino>: Define un traductor con el nombre, el lenguaje de origen y el lenguaje de destino especificados.
+    - DEFINIR PROGRAMA <nombre> <lenguaje>: Define un programa con el nombre y la ruta especificados.
+    - DEFINIR INTERPRETE <lenguaje_base> <lenguaje>: Define un intérprete con el nombre y la ruta especificados.
+    - DEFINIR TRADUCTOR <lenguaje_base> <lenguaje_origen> <lenguaje_destino>: Define un traductor con el nombre, 
+     el lenguaje de origen y el lenguaje de destino especificados.
     - EJECUTABLE <nombre>: Verifica si el programa con el nombre especificado es ejecutable.
     - SALIR: Termina la simulación.
     Si se introduce un comando no válido, se muestra un mensaje de error.

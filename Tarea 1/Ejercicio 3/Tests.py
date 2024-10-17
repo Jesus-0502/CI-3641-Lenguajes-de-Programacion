@@ -1,3 +1,8 @@
+# CI-3641 Lenguajes de Programación
+# Alumno: Jesus Gutierrez
+# Carnet: 20-10332
+# Pregunta 3 Pruebas Unitarias
+
 import pytest
 import coverage
 from Simulador import Programa, Traductor, Interprete, Maquina, Simulador
