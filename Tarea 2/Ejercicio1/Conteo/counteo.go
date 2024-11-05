@@ -35,7 +35,4 @@ func main() {
 	n := 42
 	result := count(n)
 	fmt.Println("Contador:", result)
-
-	hola := -2%2
-	fmt.Println(hola)
 }

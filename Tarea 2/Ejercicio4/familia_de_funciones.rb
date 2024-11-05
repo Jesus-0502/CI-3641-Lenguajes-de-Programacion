@@ -24,7 +24,7 @@ def fun_iter(n)
     
     results = [0] * (n + 1)
     (0...12).each do |i|
-        results[i] = i #if i >= 0
+        results[i] = i
     end
 
     (12..n).each do |i|
