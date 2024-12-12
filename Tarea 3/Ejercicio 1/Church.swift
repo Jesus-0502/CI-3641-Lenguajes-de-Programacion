@@ -1,3 +1,8 @@
+// CI-3641 Lenguajes de Programación
+// Alumno: Jesus Gutierrez
+// Carnet: 20-10332
+// Pregunta 1. Inciso 2
+
 indirect enum Church {
     case Cero
     case Suc(Church)

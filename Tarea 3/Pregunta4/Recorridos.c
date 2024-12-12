@@ -1,3 +1,9 @@
+// CI-3641 Lenguajes de Programación
+// Alumno: Jesus Gutierrez
+// Carnet: 20-10332
+// Pregunta 4. Recorridos
+
+
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
