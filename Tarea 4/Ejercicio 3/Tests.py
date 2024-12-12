@@ -1,8 +1,9 @@
 import pytest
-import coverage
+import coverage 
+from io import StringIO 
 # Importar el código a probar
-from Manejador import define_class, describe_class, handle_class_command, handle_describe_command, class_definitions
-
+from Manejador import define_class, describe_class, handle_class_command, handle_describe_command, class_definitions, Simulador
+from unittest.mock import patch
 def test_define_class():
     class_definitions.clear()
     
@@ -85,6 +86,50 @@ def test_handle_describe_command():
     output = captured_output.getvalue()
     assert 'metodo1 -> Clase1 :: metodo1' in output
     assert 'metodo2 -> Clase1 :: metodo2' in output
+@pytest.fixture   
+def setup_classes():
+    class_definitions.clear()
+    yield
+    class_definitions.clear()
+
+
+def test_simulador_class_command(monkeypatch, setup_classes):
+    inputs = iter(["CLASS Clase1 metodo1 metodo2", "SALIR"])
+    monkeypatch.setattr('builtins.input', lambda _: next(inputs))
+
+    with patch('builtins.input', lambda _: next(inputs)):
+        Simulador()
+
+    assert 'Clase1' in class_definitions
+    assert class_definitions['Clase1']['methods'] == ['metodo1', 'metodo2']
+
+def test_simulador_describe_command(monkeypatch, capsys, setup_classes):
+    inputs = iter(["CLASS Clase1 metodo1 metodo2", "DESCRIBIR Clase1", "SALIR"])
+    monkeypatch.setattr('builtins.input', lambda _: next(inputs))
+
+    with patch('builtins.input', lambda _: next(inputs)):
+        Simulador()
+
+    captured = capsys.readouterr()
+    assert "metodo1 -> Clase1 :: metodo1" in captured.out
+    assert "metodo2 -> Clase1 :: metodo2" in captured.out
+
+def test_simulador_invalid_command(monkeypatch, capsys):
+    inputs = iter(["INVALID COMMAND", "SALIR"])
+    monkeypatch.setattr('builtins.input', lambda _: next(inputs))
+
+    with patch('builtins.input', lambda _: next(inputs)):
+        Simulador()
+
+    captured = capsys.readouterr()
+    assert "Error: Comando no valido" in captured.out
+
+def test_simulador_exit(monkeypatch):
+    inputs = iter(["SALIR"])
+    monkeypatch.setattr('builtins.input', lambda _: next(inputs))
+
+    with patch('builtins.input', lambda _: next(inputs)):
+        Simulador()
 
 if __name__ == "__main__":
     pytest.main()
